@@ -115,17 +115,18 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </section>
 
   <section id="termine" style="background:linear-gradient(160deg,var(--color-section),var(--color-section-glow));padding:72px var(--space-6) 96px">
-    <div style="max-width:1200px;margin:0 auto">
-      <h2 style="margin-bottom:var(--space-6);text-align:left">Termine</h2>
-      <div class="termine-grid" style="display:grid;grid-template-columns:repeat(4,180px);gap:32px;justify-content:center">
-        <sc-for list="{{ shows }}" as="show" hint-placeholder-count="4">
-          <div style="background:#7a1418;border:1px solid var(--color-accent-2-300);border-radius:var(--radius-lg);padding:var(--space-4);aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:var(--space-2)">
-            <div style="font-size:20px;font-family:var(--font-heading);font-weight:500;white-space:nowrap">{{ show.date }}</div>
-            <div style="font-size:13px;opacity:0.8">{{ show.time }} · {{ show.venue }}</div>
-            <a class="btn btn-primary" style="margin-top:var(--space-2);border-color:#ffffff;color:#ffffff" href="{{ ticketUrl }}" target="_blank" rel="noopener">Tickets</a>
+    <div style="max-width:640px;margin:0 auto">
+      <h2 style="margin-bottom:var(--space-8)">Termine</h2>
+      <sc-for list="{{ shows }}" as="show" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:100px 1fr auto;align-items:start;gap:var(--space-4);padding:32px 0 43px;border-top:1px solid rgba(255,255,255,0.12)">
+          <div style="font-size:18px;font-weight:500">{{ show.date }}</div>
+          <div>
+            <div style="font-size:18px;margin-bottom:4px">{{ show.time }}</div>
+            <div style="font-size:14px;opacity:0.65">{{ show.venue }}</div>
           </div>
-        </sc-for>
-      </div>
+          <a href="{{ ticketUrl }}" target="_blank" rel="noopener" style="font-size:14px;color:#baabff;white-space:nowrap">→ Tickets</a>
+        </div>
+      </sc-for>
     </div>
   </section>
 
@@ -206,10 +207,10 @@ class Component extends DCLogic {
     const ticketUrl = this.props.ticketUrl ?? 'https://tickets.goetheanum.ch/6DBS-0/';
     const showEnsemble = this.props.showEnsemble ?? true;
     const shows = [
-      { date: '5. September 2026', time: '19:00 Uhr', venue: 'Grundsteinsaal' },
-      { date: '6. September 2026', time: '16:30 Uhr', venue: 'Grundsteinsaal' },
-      { date: '12. September 2026', time: '19:00 Uhr', venue: 'Grundsteinsaal' },
-      { date: '13. September 2026', time: '16:30 Uhr', venue: 'Grundsteinsaal' },
+      { date: '5. Sep 2026', time: '19:00 Uhr', venue: 'Grundsteinsaal' },
+      { date: '6. Sep 2026', time: '16:30 Uhr', venue: 'Grundsteinsaal' },
+      { date: '12. Sep 2026', time: '19:00 Uhr', venue: 'Grundsteinsaal' },
+      { date: '13. Sep 2026', time: '16:30 Uhr', venue: 'Grundsteinsaal' },
     ];
     const valerian = { role: 'Regie', name: 'Valerian Gorgoshidze', photo: '1. Valerian-sm.png', bio: 'Valerian Gorgoshidze wurde 1977 in Moskau geboren. Ausbildung zum Theaterregisseur an der Theater- und Film-Universität Tbilisi in Georgien sowie zum Sprachgestalter am Goetheanum und bei AmWort in Dornach. Seit 1997 inszeniert er regelmässig Theaterstücke, unter anderem am Rustaveli Theater in Tbilisi und an der Goetheanum Bühne. Intensive Arbeit mit Schauspielerinnen und Schauspielern, Studierenden, Schülerinnen und Schülern sowie Laien. Dozententätigkeit in Schauspiel und Sprachgestaltung. Unter anderem auch theaterpädagogische und sozialkünstlerische Projekte und Biographiearbeit.', website: 'https://buehnenkunst-amwort.ch' };
     const rawPeople = [
