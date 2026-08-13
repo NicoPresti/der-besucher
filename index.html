@@ -31,7 +31,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .hero-title { font-size: 56px !important; }
   .hero-photo { display: none !important; }
   .hero-text { max-width: none !important; }
-  .ensemble-grid { grid-template-columns: 1fr !important; }
+  .ensemble-grid { grid-template-columns: 1fr !important; row-gap: var(--space-8) !important; }
+  .ensemble-grid > div { grid-column: 1 !important; margin-top: 0 !important; }
   .termine-grid { grid-template-columns: repeat(2, 1fr) !important; gap: var(--space-3) !important; }
 }
 </style>
@@ -132,16 +133,14 @@ html, body { overflow-x: hidden; max-width: 100%; }
   <section id="ensemble" style="background:#ffffff;color:#263483;padding:72px 0 96px">
     <div style="max-width:1200px;margin:0 auto;padding:0 var(--space-6)">
     <h2 style="margin-bottom:var(--space-6);color:#263483">Ensemble</h2>
-    <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,320px));gap:var(--space-6);justify-content:center">
+    <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--space-6);row-gap:72px">
       <sc-for list="{{ people }}" as="person" hint-placeholder-count="6">
-        <div class="card elev-sm" style="cursor:pointer;background:#f4f3fa;border-color:#d8d3ed;padding-top:36px;padding-right:20px;padding-bottom:36px;padding-left:20px;display:flex;align-items:center;gap:var(--space-4)" onClick="{{ person.onClick }}">
-          <figure style="border-radius:var(--radius-md);overflow:hidden;flex:0 0 72px;width:72px;height:72px;margin:0">
-            <img src="{{ person.photo }}" alt="{{ person.name }}" style="width:72px;height:72px;object-fit:cover;object-position:{{ person.photoPos }};transform:{{ person.photoZoom }}">
+        <div style="grid-column:{{ person.col }};margin-top:{{ person.offset }}px;cursor:pointer" onClick="{{ person.onClick }}">
+          <figure style="margin:0 0 var(--space-4);aspect-ratio:4/5;overflow:hidden;border-radius:var(--radius-md)">
+            <img src="{{ person.photo }}" alt="{{ person.name }}" style="width:100%;height:100%;object-fit:cover;object-position:{{ person.photoPos }};transform:{{ person.photoZoom }};filter:grayscale(0.15)">
           </figure>
-          <div>
-            <div class="card-kicker" style="color:#c11b1f;font-size:14px">{{ person.role }}</div>
-            <div class="card-title" style="color:#263483;font-size:20px">{{ person.name }}</div>
-          </div>
+          <div style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#c11b1f;margin-bottom:4px">{{ person.role }}</div>
+          <div style="font-family:var(--font-heading);font-weight:500;font-size:22px;line-height:1.15;color:#263483">{{ person.name }}</div>
         </div>
       </sc-for>
     </div>
@@ -221,8 +220,17 @@ class Component extends DCLogic {
       { role: 'Gesang', name: 'Ingala Fortagne', photo: '6. Ingala-sm.png', bio: 'Die in Leipzig geborene Sopranistin Ingala Fortagne sucht seit Beginn ihres klassischen Gesangsstudiums an der Hochschule „Felix Mendelssohn-Bartholdy“ in Leipzig und an der Hochschule „Franz Liszt“ in Weimar die Ausdrucksmöglichkeiten der klassischen Sängerin zu erweitern. Sie arbeitet spartenübergreifend, um dem Musiktheater als Gesamtkunstwerk näher zu kommen. Ihre Engagements führten sie unter anderem zum Theater an der Wien, ans Dschungel Wien, zu den Heidenheimer Opernfestspielen, ans Theater Eisenach, zum Schauspiel Leipzig, zum ECLAT Festival, zur Musik der Jahrhunderte in Stuttgart, nach Basel oder in die Tonhalle MAAG in Zürich.', website: 'https://www.ingala-fortagne.com' },
       { role: 'Klavier', name: 'Nadia Belneeva', photo: '7. Nadia-sm.png', bio: 'Die in Sofia geborene Pianistin Nadia Belneeva studierte zunächst an der Nationalen Musikakademie in ihrer Heimatstadt. Ab 1993 Studium an der Hochschule für Musik und Theater Hamburg. Weitere Abschlüsse am Königlichen Konservatorium in Brüssel sowie an der Schola Cantorum in Basel (Historische Tasteninstrumente). Von 2003 bis 2007 Korrepetitorin an der Staatsoper Hamburg. Als Kammermusikpartnerin und Liedbegleiterin auf internationalen Konzertbühnen und Festivals tätig (u.a. Lucerne Festival, Schleswig-Holstein Musik Festival, Tokyo Musik Festival). Zurzeit lebt sie in Basel und ist dort Korrepetitorin am Theater Basel und an der Musik Akademie Basel.', website: 'https://www.theater-basel.ch/de/ensemble-team/nadiabelneeva' },
     ];
+    const layout = [
+      { col: 'span 4', offset: 0 },
+      { col: 'span 4', offset: 48 },
+      { col: 'span 4', offset: 16 },
+      { col: 'span 4', offset: 64 },
+      { col: 'span 4', offset: 0 },
+      { col: 'span 4', offset: 32 },
+      { col: 'span 4', offset: 0 },
+    ];
     const activeIdx = this.state.activeIdx;
-    const people = rawPeople.map((p, i) => ({ ...p, onClick: () => this.setState({ activeIdx: i }) }));
+    const people = rawPeople.map((p, i) => ({ ...p, ...layout[i % layout.length], onClick: () => this.setState({ activeIdx: i }) }));
     const activePerson = activeIdx != null ? people[activeIdx] : null;
     const closePerson = () => this.setState({ activeIdx: null });
     const stopClick = (e) => e.stopPropagation();
