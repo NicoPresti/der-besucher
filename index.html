@@ -160,6 +160,7 @@ class Component extends DCLogic {
   componentDidMount() {
     const container = document.getElementById('gallery-scroll');
     if (!container) return;
+    if (window.matchMedia('(max-width: 720px)').matches) return;
     const update = () => {
       const items = container.querySelectorAll('.gallery-item');
       const centerX = container.getBoundingClientRect().left + container.clientWidth / 2;
