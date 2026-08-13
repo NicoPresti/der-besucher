@@ -16,6 +16,14 @@
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Klar.otf") format("opentype"); font-weight: 400; }
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Deutlich.otf") format("opentype"); font-weight: 500; }
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Laut.otf") format("opentype"); font-weight: 700; }
+* { box-sizing: border-box; }
+html, body { overflow-x: hidden; max-width: 100%; }
+@media (max-width: 720px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-title { font-size: 44px !important; }
+  .ensemble-grid { grid-template-columns: 1fr !important; }
+  .termine-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
 </style>
 </helmet>
 
@@ -27,10 +35,10 @@
     </a>
   </div>
 
-  <section style="max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) var(--space-8);display:grid;grid-template-columns:1.1fr 0.9fr;gap:var(--space-8);align-items:center">
+  <section class="hero-grid" style="max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) var(--space-8);display:grid;grid-template-columns:1.1fr 0.9fr;gap:var(--space-8);align-items:center">
     <div>
       <div class="tag tag-outline" style="margin-bottom:var(--space-4);border-color:#baabff;color:#baabff">Ein Projektensemble der Goetheanum-Bühne</div>
-      <h1 style="font-size:64px;max-width:11ch">Der Besucher</h1>
+      <h1 class="hero-title" style="font-size:64px;max-width:11ch">Der Besucher</h1>
       <p style="font-size:18px;color:var(--color-accent-300);margin-bottom:var(--space-2)">Le Visiteur — ein Theaterstück von Éric-Emmanuel Schmitt</p>
       <p style="font-size:14px;color:var(--color-accent-300);margin-bottom:var(--space-4)">Deutsch von Annette und Paul Bäcker.</p>
       <p style="font-size:16px;max-width:52ch;opacity:0.85">Sigmund Freud erlebt schwere Zeiten. Die Nationalsozialisten marschieren in Wien ein; Juden werden verfolgt. Freuds Tochter Anna wird von der Gestapo abgeholt. In dieser Zeit bekommt er einen unerwarteten Besuch. Der Unbekannte deutet an, dass er Gott ist! Als überzeugter Atheist nimmt Freud seine Worte nicht ernst, doch die Fähigkeiten des Besuchers (z.B. Einzelheiten aus dem Leben von Freud zu kennen oder die Gabe in die Zukunft zu schauen) machen Freud nachdenklich.</p>
@@ -91,7 +99,7 @@
   <section id="termine" style="background:linear-gradient(160deg,var(--color-section),var(--color-section-glow));padding:var(--space-8) var(--space-6)">
     <div style="max-width:1200px;margin:0 auto">
       <h2 style="margin-bottom:var(--space-6);text-align:left">Termine</h2>
-      <div style="display:grid;grid-template-columns:repeat(4,180px);gap:32px;justify-content:center">
+      <div class="termine-grid" style="display:grid;grid-template-columns:repeat(4,180px);gap:32px;justify-content:center">
         <sc-for list="{{ shows }}" as="show" hint-placeholder-count="4">
           <div style="background:#7a1418;border:1px solid var(--color-accent-2-300);border-radius:var(--radius-lg);padding:var(--space-4);aspect-ratio:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:var(--space-2)">
             <div style="font-size:20px;font-family:var(--font-heading);font-weight:500;white-space:nowrap">{{ show.date }}</div>
@@ -106,7 +114,7 @@
   <sc-if value="{{ showEnsemble }}" hint-placeholder-val="{{ true }}">
   <section id="ensemble" style="max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6)">
     <h2 style="margin-bottom:var(--space-6)">Ensemble</h2>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)">
+    <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)">
       <sc-for list="{{ people }}" as="person" hint-placeholder-count="6">
         <div class="card elev-sm" style="display:flex;flex-direction:column;gap:var(--space-3)">
           <div style="display:flex;align-items:center;gap:var(--space-3)">
