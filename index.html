@@ -59,8 +59,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
           <p style="font-size:13px;color:#263483;margin-bottom:var(--space-4)">Ein Projektensemble der Goetheanum-Bühne</p>
           <p style="font-size:16px;opacity:0.85">Sigmund Freud erlebt schwere Zeiten. Die Nationalsozialisten marschieren in Wien ein; Juden werden verfolgt. Freuds Tochter Anna wird von der Gestapo abgeholt. In dieser Zeit bekommt er einen unerwarteten Besuch. Der Unbekannte deutet an, dass er Gott ist! Als überzeugter Atheist nimmt Freud seine Worte nicht ernst, doch die Fähigkeiten des Besuchers (z.B. Einzelheiten aus dem Leben von Freud zu kennen oder die Gabe in die Zukunft zu schauen) machen Freud nachdenklich.</p>
           <div style="display:flex;gap:var(--space-3);margin-top:var(--space-6)">
-            <a class="btn btn-primary" style="background:#c11b1f;border-color:#c11b1f;color:#ffffff" href="{{ ticketUrl }}" target="_blank" rel="noopener">Tickets sichern</a>
-            <a class="btn btn-secondary" style="background:#ffffff;border-color:#263483;color:#263483" href="#termine">Alle Termine</a>
+            <a class="btn btn-primary" style="background:#c11b1f;border-color:#c11b1f;color:#ffffff;padding:14px 28px;font-size:16px" href="{{ ticketUrl }}" target="_blank" rel="noopener">Tickets sichern</a>
+            <a class="btn btn-secondary" style="background:#ffffff;border-color:#263483;color:#263483;padding:14px 28px;font-size:16px" href="#termine">Alle Termine</a>
           </div>
         </div>
       </div>
@@ -142,8 +142,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <sc-if value="{{ activePerson }}" hint-placeholder-val="{{ false }}">
       <div class="dialog-backdrop" onClick="{{ closePerson }}">
         <div class="dialog" style="max-width:420px;background:#ffffff;color:#263483" onClick="{{ stopClick }}">
-          <figure style="border-radius:var(--radius-md);overflow:hidden;width:120px;height:120px;margin:0 0 var(--space-3)">
-            <img src="{{ activePerson.photo }}" alt="{{ activePerson.name }}" style="width:120px;height:120px;object-fit:cover;object-position:{{ activePerson.photoPos }};transform:{{ activePerson.photoZoom }}">
+          <figure style="border-radius:var(--radius-md);overflow:hidden;width:160px;height:160px;margin:0 0 var(--space-3)">
+            <img src="{{ activePerson.photo }}" alt="{{ activePerson.name }}" style="width:160px;height:160px;object-fit:cover;object-position:{{ activePerson.photoPos }};transform:{{ activePerson.photoZoom }}">
           </figure>
           <div class="card-kicker" style="color:#c11b1f">{{ activePerson.role }}</div>
           <div class="dialog-title" style="margin-bottom:var(--space-2);color:#263483">{{ activePerson.name }}</div>
