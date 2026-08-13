@@ -133,7 +133,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   <section id="ensemble" style="background:#ffffff;color:#263483;padding:72px 0 96px">
     <div style="max-width:1200px;margin:0 auto;padding:0 var(--space-6)">
     <h2 style="margin-bottom:var(--space-6);color:#263483">Ensemble</h2>
-    <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--space-6);row-gap:72px">
+    <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--space-8);row-gap:var(--space-8)">
       <sc-for list="{{ people }}" as="person" hint-placeholder-count="6">
         <div style="grid-column:{{ person.col }};margin-top:{{ person.offset }}px;cursor:pointer" onClick="{{ person.onClick }}">
           <figure style="margin:0 0 var(--space-4);aspect-ratio:4/5;overflow:hidden;border-radius:var(--radius-md)">
@@ -221,13 +221,13 @@ class Component extends DCLogic {
       { role: 'Klavier', name: 'Nadia Belneeva', photo: '7. Nadia-sm.png', bio: 'Die in Sofia geborene Pianistin Nadia Belneeva studierte zunächst an der Nationalen Musikakademie in ihrer Heimatstadt. Ab 1993 Studium an der Hochschule für Musik und Theater Hamburg. Weitere Abschlüsse am Königlichen Konservatorium in Brüssel sowie an der Schola Cantorum in Basel (Historische Tasteninstrumente). Von 2003 bis 2007 Korrepetitorin an der Staatsoper Hamburg. Als Kammermusikpartnerin und Liedbegleiterin auf internationalen Konzertbühnen und Festivals tätig (u.a. Lucerne Festival, Schleswig-Holstein Musik Festival, Tokyo Musik Festival). Zurzeit lebt sie in Basel und ist dort Korrepetitorin am Theater Basel und an der Musik Akademie Basel.', website: 'https://www.theater-basel.ch/de/ensemble-team/nadiabelneeva' },
     ];
     const layout = [
-      { col: 'span 4', offset: 0 },
-      { col: 'span 4', offset: 48 },
-      { col: 'span 4', offset: 16 },
-      { col: 'span 4', offset: 64 },
-      { col: 'span 4', offset: 0 },
-      { col: 'span 4', offset: 32 },
-      { col: 'span 4', offset: 0 },
+      { col: 'span 3', offset: 0 },
+      { col: 'span 3', offset: 0 },
+      { col: 'span 3', offset: 0 },
+      { col: 'span 3', offset: 0 },
+      { col: 'span 3', offset: 0 },
+      { col: 'span 3', offset: 0 },
+      { col: 'span 3', offset: 0 },
     ];
     const activeIdx = this.state.activeIdx;
     const people = rawPeople.map((p, i) => ({ ...p, ...layout[i % layout.length], onClick: () => this.setState({ activeIdx: i }) }));
