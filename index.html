@@ -38,18 +38,20 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </div>
 
   <section style="position:relative;background-image:url('3.png');background-size:900px;color:#1a1a2e;overflow:hidden">
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 75%, #ffffff 100%)"></div>
-    <img class="hero-photo" src="hintergrnd.png" alt="Die zwei Figuren aus Der Besucher im Gespräch" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:auto">
+    <img src="hintergrnd.png" alt="Die zwei Figuren aus Der Besucher im Gespräch" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:auto">
     <div style="position:relative;max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) 72px">
-      <div style="font-family:'Bernard MT Condensed', var(--font-heading);font-size:22px;letter-spacing:0.08em;color:#263483;margin-bottom:0">Éric-Emmanuel Schmitt</div>
-      <h1 class="hero-title" style="font-family:'Bernard MT Condensed', var(--font-heading);font-weight:400;font-size:96px;line-height:0.95;color:#c11b1f;margin:0 0 var(--space-4);max-width:14ch">Der Besucher</h1>
-      <div class="hero-text" style="max-width:52ch">
-        <p style="font-size:18px;color:#263483;margin-bottom:var(--space-2)">Ein Projektensemble der Goetheanum-Bühne</p>
-        <p style="font-size:14px;color:#263483;margin-bottom:var(--space-4)">Deutsch von Annette und Paul Bäcker.</p>
-        <p style="font-size:16px;opacity:0.85">Sigmund Freud erlebt schwere Zeiten. Die Nationalsozialisten marschieren in Wien ein; Juden werden verfolgt. Freuds Tochter Anna wird von der Gestapo abgeholt. In dieser Zeit bekommt er einen unerwarteten Besuch. Der Unbekannte deutet an, dass er Gott ist! Als überzeugter Atheist nimmt Freud seine Worte nicht ernst, doch die Fähigkeiten des Besuchers (z.B. Einzelheiten aus dem Leben von Freud zu kennen oder die Gabe in die Zukunft zu schauen) machen Freud nachdenklich.</p>
-        <div style="display:flex;gap:var(--space-3);margin-top:var(--space-6)">
-          <a class="btn btn-primary" style="background:#c11b1f;border-color:#c11b1f;color:#ffffff" href="{{ ticketUrl }}" target="_blank" rel="noopener">Tickets sichern</a>
-          <a class="btn btn-secondary" style="background:#ffffff;border-color:#263483;color:#263483" href="#termine">Alle Termine</a>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.55) 62%, rgba(255,255,255,0) 100%)"></div>
+      <div style="position:relative">
+        <div style="font-family:'Bernard MT Condensed', var(--font-heading);font-size:22px;letter-spacing:0.08em;color:#263483;margin-bottom:0">Éric-Emmanuel Schmitt</div>
+        <h1 class="hero-title" style="font-family:'Bernard MT Condensed', var(--font-heading);font-weight:400;font-size:96px;line-height:0.95;color:#c11b1f;margin:0 0 var(--space-4);max-width:14ch">Der Besucher</h1>
+        <div class="hero-text" style="max-width:52ch">
+          <p style="font-size:18px;color:#263483;margin-bottom:var(--space-2)">Ein Projektensemble der Goetheanum-Bühne</p>
+          <p style="font-size:14px;color:#263483;margin-bottom:var(--space-4)">Deutsch von Annette und Paul Bäcker.</p>
+          <p style="font-size:16px;opacity:0.85">Sigmund Freud erlebt schwere Zeiten. Die Nationalsozialisten marschieren in Wien ein; Juden werden verfolgt. Freuds Tochter Anna wird von der Gestapo abgeholt. In dieser Zeit bekommt er einen unerwarteten Besuch. Der Unbekannte deutet an, dass er Gott ist! Als überzeugter Atheist nimmt Freud seine Worte nicht ernst, doch die Fähigkeiten des Besuchers (z.B. Einzelheiten aus dem Leben von Freud zu kennen oder die Gabe in die Zukunft zu schauen) machen Freud nachdenklich.</p>
+          <div style="display:flex;gap:var(--space-3);margin-top:var(--space-6)">
+            <a class="btn btn-primary" style="background:#c11b1f;border-color:#c11b1f;color:#ffffff" href="{{ ticketUrl }}" target="_blank" rel="noopener">Tickets sichern</a>
+            <a class="btn btn-secondary" style="background:#ffffff;border-color:#263483;color:#263483" href="#termine">Alle Termine</a>
+          </div>
         </div>
       </div>
     </div>
@@ -99,7 +101,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
     </div>
   </section>
 
-  <section id="termine" style="background:linear-gradient(160deg,var(--color-section),var(--color-section-glow));padding:var(--space-8) var(--space-6)">
+  <section id="termine" style="background:linear-gradient(160deg,var(--color-section),var(--color-section-glow));padding:72px var(--space-6) 96px">
     <div style="max-width:1200px;margin:0 auto">
       <h2 style="margin-bottom:var(--space-6);text-align:left">Termine</h2>
       <div class="termine-grid" style="display:grid;grid-template-columns:repeat(4,180px);gap:32px;justify-content:center">
@@ -115,7 +117,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </section>
 
   <sc-if value="{{ showEnsemble }}" hint-placeholder-val="{{ true }}">
-  <section id="ensemble" style="background:#ffffff;color:#263483;padding:var(--space-8) 0">
+  <section id="ensemble" style="background:#ffffff;color:#263483;padding:72px 0 96px">
     <div style="max-width:1200px;margin:0 auto;padding:0 var(--space-6)">
     <h2 style="margin-bottom:var(--space-6);color:#263483">Ensemble</h2>
     <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)">
@@ -145,13 +147,12 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </section>
   </sc-if>
 
-  <div class="hr" style="max-width:1200px;margin-left:auto;margin-right:auto"></div>
+  <div style="background:linear-gradient(160deg,var(--color-section),var(--color-section-glow));padding:var(--space-6) var(--space-6);font-size:16px">
+    <div style="max-width:1200px;margin:0 auto">Mehr über die Veranstaltungen der <a href="https://www.goetheanum-buehne.ch" target="_blank" rel="noopener" style="color:#baabff">Goetheanum-Bühne</a></div>
+    <div style="max-width:1200px;margin:0 auto;margin-top:var(--space-3)">Im Oktober: das <a href="https://srmk.goetheanum.org/konferenzen/theater-26" target="_blank" rel="noopener" style="color:#baabff">Theater-Festival 2026</a></div>
+  </div>
 
-  <div style="max-width:1200px;margin:0 auto;padding:var(--space-6) var(--space-6) 0;font-size:16px">Mehr über die Veranstaltungen der <a href="https://www.goetheanum-buehne.ch" target="_blank" rel="noopener" style="color:#baabff">Goetheanum-Bühne</a></div>
-
-  <div class="hr" style="max-width:1200px;margin-left:auto;margin-right:auto"></div>
-
-  <footer style="max-width:1200px;margin:0 auto;padding:var(--space-6);font-size:13px;opacity:0.7">
+  <footer style="max-width:1200px;margin:0 auto;padding:var(--space-6);font-size:13px;opacity:0.7;text-align:right">
     <div>Goetheanum · Rüttiweg 45 · 4143 Dornach · Schweiz</div>
   </footer>
 
