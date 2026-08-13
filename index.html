@@ -44,7 +44,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </div>
 
   <section style="position:relative;background-image:url('3.png');background-size:900px;color:#1a1a2e;overflow:hidden">
-    <img src="hintergrnd.png" alt="Die zwei Figuren aus Der Besucher im Gespräch" style="position:absolute;left:0;right:0;bottom:0;width:100%;max-height:320px;object-fit:cover;object-position:bottom">
+    <img src="hintergrnd.png" alt="Die zwei Figuren aus Der Besucher im Gespräch" style="position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:1400px;height:auto">
     <div style="position:relative;max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) 72px">
       <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.55) 62%, rgba(255,255,255,0) 100%)"></div>
       <div style="position:relative">
@@ -129,7 +129,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)">
       <sc-for list="{{ people }}" as="person" hint-placeholder-count="6">
         <div class="card elev-sm" style="cursor:pointer;background:#f4f3fa;border-color:#d8d3ed" onClick="{{ person.onClick }}">
-          <div class="card-kicker" style="color:#263483">{{ person.role }}</div>
+          <div class="card-kicker" style="color:#c11b1f">{{ person.role }}</div>
           <div class="card-title" style="color:#263483">{{ person.name }}</div>
         </div>
       </sc-for>
@@ -140,7 +140,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
           <figure style="border-radius:var(--radius-md);overflow:hidden;width:120px;height:120px;margin:0 0 var(--space-3)">
             <img src="{{ activePerson.photo }}" alt="{{ activePerson.name }}" style="width:120px;height:120px;object-fit:cover;object-position:{{ activePerson.photoPos }};transform:{{ activePerson.photoZoom }}">
           </figure>
-          <div class="card-kicker" style="color:#263483">{{ activePerson.role }}</div>
+          <div class="card-kicker" style="color:#c11b1f">{{ activePerson.role }}</div>
           <div class="dialog-title" style="margin-bottom:var(--space-2);color:#263483">{{ activePerson.name }}</div>
           <div class="dialog-body" style="padding:0;font-size:14px;color:#263483">{{ activePerson.bio }}</div>
           <sc-if value="{{ activePerson.website }}" hint-placeholder-val="{{ false }}">
