@@ -19,7 +19,7 @@
 * { box-sizing: border-box; }
 html, body { overflow-x: hidden; max-width: 100%; }
 @media (max-width: 720px) {
-  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-grid { grid-template-columns: 1fr !important; grid-template-areas: 'title' 'image' 'text' !important; }
   .hero-title { font-size: 44px !important; }
   .ensemble-grid { grid-template-columns: 1fr !important; }
   .termine-grid { grid-template-columns: repeat(2, 1fr) !important; }
@@ -31,14 +31,16 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
   <div style="max-width:1200px;margin:0 auto;padding:var(--space-6) var(--space-6) 0">
     <a href="https://www.goetheanum-buehne.ch" target="_blank" rel="noopener">
-      <img src="goetheanum-buehne-desktop-white.svg" alt="Goetheanum-Bühne" style="height:28px">
+      <img src="goetheanum-buehne-desktop-white.svg" alt="Goetheanum-Bühne" style="height:42px">
     </a>
   </div>
 
-  <section class="hero-grid" style="max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) var(--space-8);display:grid;grid-template-columns:1.1fr 0.9fr;gap:var(--space-8);align-items:center">
-    <div>
+  <section class="hero-grid" style="max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) var(--space-8);display:grid;grid-template-columns:1.1fr 0.9fr;grid-template-areas:'title image' 'text image';gap:var(--space-8);align-items:center">
+    <div style="grid-area:title">
       <div class="tag tag-outline" style="margin-bottom:var(--space-4);border-color:#baabff;color:#baabff">Ein Projektensemble der Goetheanum-Bühne</div>
       <h1 class="hero-title" style="font-size:64px;max-width:11ch">Der Besucher</h1>
+    </div>
+    <div style="grid-area:text">
       <p style="font-size:18px;color:var(--color-accent-300);margin-bottom:var(--space-2)">Le Visiteur — ein Theaterstück von Éric-Emmanuel Schmitt</p>
       <p style="font-size:14px;color:var(--color-accent-300);margin-bottom:var(--space-4)">Deutsch von Annette und Paul Bäcker.</p>
       <p style="font-size:16px;max-width:52ch;opacity:0.85">Sigmund Freud erlebt schwere Zeiten. Die Nationalsozialisten marschieren in Wien ein; Juden werden verfolgt. Freuds Tochter Anna wird von der Gestapo abgeholt. In dieser Zeit bekommt er einen unerwarteten Besuch. Der Unbekannte deutet an, dass er Gott ist! Als überzeugter Atheist nimmt Freud seine Worte nicht ernst, doch die Fähigkeiten des Besuchers (z.B. Einzelheiten aus dem Leben von Freud zu kennen oder die Gabe in die Zukunft zu schauen) machen Freud nachdenklich.</p>
@@ -47,7 +49,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
         <a class="btn btn-secondary" style="border-color:#baabff;color:#baabff" href="#termine">Alle Termine</a>
       </div>
     </div>
-    <figure class="lighten" style="border-radius:var(--radius-lg);overflow:hidden">
+    <figure class="lighten" style="grid-area:image;border-radius:var(--radius-lg);overflow:hidden;margin:0">
       <img src="Der Besucher Jens Bodo Meier und Christian Richter_Francois Croissant.jpg" alt="Jens Bodo Meier und Christian Richter im Gespräch, Szene aus Der Besucher" style="width:100%;height:520px;object-fit:cover">
     </figure>
   </section>
@@ -101,7 +103,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
       <h2 style="margin-bottom:var(--space-6);text-align:left">Termine</h2>
       <div class="termine-grid" style="display:grid;grid-template-columns:repeat(4,180px);gap:32px;justify-content:center">
         <sc-for list="{{ shows }}" as="show" hint-placeholder-count="4">
-          <div style="background:#7a1418;border:1px solid var(--color-accent-2-300);border-radius:var(--radius-lg);padding:var(--space-4);aspect-ratio:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:var(--space-2)">
+          <div style="background:#7a1418;border:1px solid var(--color-accent-2-300);border-radius:var(--radius-lg);padding:var(--space-4);aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:var(--space-2)">
             <div style="font-size:20px;font-family:var(--font-heading);font-weight:500;white-space:nowrap">{{ show.date }}</div>
             <div style="font-size:13px;opacity:0.8">{{ show.time }} · {{ show.venue }}</div>
             <a class="btn btn-primary" style="margin-top:var(--space-2);border-color:#ffffff;color:#ffffff" href="{{ ticketUrl }}" target="_blank" rel="noopener">Tickets</a>
@@ -116,29 +118,37 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <h2 style="margin-bottom:var(--space-6)">Ensemble</h2>
     <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)">
       <sc-for list="{{ people }}" as="person" hint-placeholder-count="6">
-        <div class="card elev-sm" style="display:flex;flex-direction:column;gap:var(--space-3)">
-          <div style="display:flex;align-items:center;gap:var(--space-3)">
-            <figure style="border-radius:var(--radius-md);overflow:hidden;flex:0 0 96px;width:96px;height:96px;margin:0;background:var(--color-neutral-700)">
-              <img src="{{ person.photo }}" alt="{{ person.name }}" style="width:96px;height:96px;object-fit:cover;object-position:{{ person.photoPos }};transform:{{ person.photoZoom }}">
-            </figure>
-            <div>
-              <div class="card-kicker" style="color:#baabff">{{ person.role }}</div>
-              <div class="card-title">{{ person.name }}</div>
-            </div>
-          </div>
-          <div style="font-size:13px;opacity:0.85">{{ person.bio }}</div>
-          <sc-if value="{{ person.website }}" hint-placeholder-val="{{ false }}">
-            <a href="{{ person.website }}" target="_blank" rel="noopener" style="font-size:13px;color:#baabff">Webseite →</a>
-          </sc-if>
+        <div class="card elev-sm" style="cursor:pointer" onClick="{{ person.onClick }}">
+          <div class="card-kicker" style="color:#baabff">{{ person.role }}</div>
+          <div class="card-title">{{ person.name }}</div>
         </div>
       </sc-for>
     </div>
+    <sc-if value="{{ activePerson }}" hint-placeholder-val="{{ false }}">
+      <div class="dialog-backdrop" onClick="{{ closePerson }}">
+        <div class="dialog" style="max-width:420px;background:var(--color-bg)" onClick="{{ stopClick }}">
+          <figure style="border-radius:var(--radius-md);overflow:hidden;width:120px;height:120px;margin:0 0 var(--space-3)">
+            <img src="{{ activePerson.photo }}" alt="{{ activePerson.name }}" style="width:120px;height:120px;object-fit:cover;object-position:{{ activePerson.photoPos }};transform:{{ activePerson.photoZoom }}">
+          </figure>
+          <div class="card-kicker" style="color:#baabff">{{ activePerson.role }}</div>
+          <div class="dialog-title" style="margin-bottom:var(--space-2)">{{ activePerson.name }}</div>
+          <div class="dialog-body" style="padding:0;font-size:14px">{{ activePerson.bio }}</div>
+          <sc-if value="{{ activePerson.website }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ activePerson.website }}" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-3);font-size:13px;color:#baabff">Webseite →</a>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
   </section>
   </sc-if>
 
   <div class="hr" style="max-width:1200px;margin-left:auto;margin-right:auto"></div>
 
-  <footer style="max-width:1200px;margin:0 auto;padding:var(--space-6);border-top:1px solid var(--color-divider);display:flex;justify-content:space-between;align-items:center;font-size:13px;opacity:0.7">
+  <div style="max-width:1200px;margin:0 auto;padding:var(--space-6) var(--space-6) 0;font-size:16px">Mehr über die Veranstaltungen der <a href="https://www.goetheanum-buehne.ch" target="_blank" rel="noopener" style="color:#baabff">Goetheanum-Bühne</a></div>
+
+  <div class="hr" style="max-width:1200px;margin-left:auto;margin-right:auto"></div>
+
+  <footer style="max-width:1200px;margin:0 auto;padding:var(--space-6);font-size:13px;opacity:0.7">
     <div>Goetheanum · Rüttiweg 45 · 4143 Dornach · Schweiz</div>
   </footer>
 
@@ -146,6 +156,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;ticketUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://tickets.goetheanum.ch/6DBS-0/&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showEnsemble&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
+  state = { activeIdx: null };
   componentDidMount() {
     const container = document.getElementById('gallery-scroll');
     if (!container) return;
@@ -184,7 +195,12 @@ class Component extends DCLogic {
       { role: 'Gesang', name: 'Ingala Fortagne', photo: 'images.jpeg', bio: 'Die in Leipzig aufgewachsene klassische Sängerin studierte in Leipzig und Weimar. Sie arbeitet spartenübergreifend zwischen Oper, Konzert, zeitgenössischer Musik und Musiktheater. Ihre künstlerische Arbeit verbindet Ausdruck, Wahrhaftigkeit und die Auseinandersetzung mit Vergangenheit und Gegenwart.', website: 'https://www.ingala-fortagne.com' },
       { role: 'Klavier', name: 'Nadia Belneeva', photo: 'nadejda_petrova_belneeva_photo_christian_knoerr.webp', photoPos: 'center 20%', photoZoom: 'scale(1.15)', bio: 'Die in Sofia geborene Pianistin Nadejda Petrova Belneeva studierte in Sofia, Hamburg, Brüssel und Basel. Internationale Meisterkurse, u. a. bei Leon Fleisher und Georgy Sebök, ergänzten ihre Ausbildung. Als Kammermusikpartnerin und Liedbegleiterin konzertierte sie bei renommierten Festivals wie dem Lucerne Festival und dem Schleswig-Holstein Musik Festival. Heute lebt sie in Basel und arbeitet als Korrepetitorin am Theater Basel und an der Musik-Akademie Basel.', website: 'https://www.theater-basel.ch/de/ensemble-team/nadiabelneeva' },
     ];
-    return { ticketUrl, showEnsemble, shows, people: rawPeople };
+    const activeIdx = this.state.activeIdx;
+    const people = rawPeople.map((p, i) => ({ ...p, onClick: () => this.setState({ activeIdx: i }) }));
+    const activePerson = activeIdx != null ? people[activeIdx] : null;
+    const closePerson = () => this.setState({ activeIdx: null });
+    const stopClick = (e) => e.stopPropagation();
+    return { ticketUrl, showEnsemble, shows, people, activePerson, closePerson, stopClick };
   }
 }
 </script>
