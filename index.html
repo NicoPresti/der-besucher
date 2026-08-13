@@ -16,11 +16,13 @@
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Klar.otf") format("opentype"); font-weight: 400; }
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Deutlich.otf") format("opentype"); font-weight: 500; }
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Laut.otf") format("opentype"); font-weight: 700; }
+@font-face { font-family: "Bernard MT Condensed"; src: url("BernardMTCondensed.ttf") format("truetype"); }
 * { box-sizing: border-box; }
 html, body { overflow-x: hidden; max-width: 100%; }
 @media (max-width: 720px) {
-  .hero-grid { grid-template-columns: 1fr !important; grid-template-areas: 'title' 'image' 'text' !important; }
-  .hero-title { font-size: 44px !important; }
+  .hero-title { font-size: 56px !important; }
+  .hero-photo { display: none !important; }
+  .hero-text { max-width: none !important; }
   .ensemble-grid { grid-template-columns: 1fr !important; }
   .termine-grid { grid-template-columns: repeat(2, 1fr) !important; gap: var(--space-3) !important; }
 }
@@ -29,29 +31,28 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
 <div style="background:var(--color-bg);color:var(--color-text);min-height:100vh;--font-heading:'Goetheanum Schrift', Inter, sans-serif;--font-body:'Goetheanum Schrift', Inter, sans-serif;font-family:var(--font-body);--color-accent:oklch(58% 0.16 25);--color-accent-100:oklch(97% 0.015 25);--color-accent-200:oklch(90% 0.04 25);--color-accent-300:oklch(80% 0.08 25);--color-accent-400:oklch(70% 0.12 25);--color-accent-500:oklch(58% 0.16 25);--color-accent-600:oklch(48% 0.15 25);--color-accent-700:oklch(38% 0.13 25);--color-accent-800:oklch(28% 0.10 25);--color-accent-900:oklch(18% 0.06 25);--color-accent-2:oklch(58% 0.16 25);--color-accent-2-100:oklch(97% 0.015 25);--color-accent-2-200:oklch(90% 0.04 25);--color-accent-2-300:oklch(80% 0.08 25);--color-accent-2-400:oklch(70% 0.12 25);--color-accent-2-500:oklch(58% 0.16 25);--color-accent-2-600:oklch(48% 0.15 25);--color-accent-2-700:oklch(38% 0.13 25);--color-accent-2-800:oklch(28% 0.10 25);--color-accent-2-900:oklch(18% 0.06 25)">
 
-  <div style="max-width:1200px;margin:0 auto;padding:var(--space-6) var(--space-6) 0">
+  <div style="max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-8)">
     <a href="https://www.goetheanum-buehne.ch" target="_blank" rel="noopener">
       <img src="goetheanum-buehne-desktop-white.svg" alt="Goetheanum-Bühne" style="height:42px">
     </a>
   </div>
 
-  <section class="hero-grid" style="max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) var(--space-8);display:grid;grid-template-columns:1.1fr 0.9fr;grid-template-areas:'title image' 'text image';gap:var(--space-8);align-items:center">
-    <div style="grid-area:title">
-      <div class="tag tag-outline" style="margin-bottom:var(--space-4);border-color:#baabff;color:#baabff">Ein Projektensemble der Goetheanum-Bühne</div>
-      <h1 class="hero-title" style="font-size:64px;max-width:11ch">Der Besucher</h1>
-    </div>
-    <div style="grid-area:text">
-      <p style="font-size:18px;color:var(--color-accent-300);margin-bottom:var(--space-2)">Le Visiteur — ein Theaterstück von Éric-Emmanuel Schmitt</p>
-      <p style="font-size:14px;color:var(--color-accent-300);margin-bottom:var(--space-4)">Deutsch von Annette und Paul Bäcker.</p>
-      <p style="font-size:16px;max-width:52ch;opacity:0.85">Sigmund Freud erlebt schwere Zeiten. Die Nationalsozialisten marschieren in Wien ein; Juden werden verfolgt. Freuds Tochter Anna wird von der Gestapo abgeholt. In dieser Zeit bekommt er einen unerwarteten Besuch. Der Unbekannte deutet an, dass er Gott ist! Als überzeugter Atheist nimmt Freud seine Worte nicht ernst, doch die Fähigkeiten des Besuchers (z.B. Einzelheiten aus dem Leben von Freud zu kennen oder die Gabe in die Zukunft zu schauen) machen Freud nachdenklich.</p>
-      <div style="display:flex;gap:var(--space-3);margin-top:var(--space-6)">
-        <a class="btn btn-primary" style="background:#ffffff;border-color:#ffffff;color:var(--color-accent)" href="{{ ticketUrl }}" target="_blank" rel="noopener">Tickets sichern</a>
-        <a class="btn btn-secondary" style="border-color:#baabff;color:#baabff" href="#termine">Alle Termine</a>
+  <section style="position:relative;background-image:url('3.png');background-size:900px;color:#1a1a2e;overflow:hidden">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(233,231,240,0) 0%, rgba(233,231,240,0.5) 75%, var(--color-bg) 100%)"></div>
+    <img class="hero-photo" src="Der Besucher Jens Bodo Meier und Christian Richter_Francois Croissant.jpg" alt="Jens Bodo Meier und Christian Richter im Gespräch, Szene aus Der Besucher" style="position:absolute;right:0;top:0;width:42%;max-width:480px;height:100%;object-fit:cover;mix-blend-mode:multiply">
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) 72px">
+      <div style="font-family:'Bernard MT Condensed', var(--font-heading);font-size:22px;letter-spacing:0.08em;color:#263483;margin-bottom:0">Éric-Emmanuel Schmitt</div>
+      <h1 class="hero-title" style="font-family:'Bernard MT Condensed', var(--font-heading);font-weight:400;font-size:96px;line-height:0.95;color:#c11b1f;margin:0 0 var(--space-4);max-width:14ch">Der Besucher</h1>
+      <div class="hero-text" style="max-width:52ch">
+        <p style="font-size:18px;color:#263483;margin-bottom:var(--space-2)">Ein Projektensemble der Goetheanum-Bühne</p>
+        <p style="font-size:14px;color:#263483;margin-bottom:var(--space-4)">Deutsch von Annette und Paul Bäcker.</p>
+        <p style="font-size:16px;opacity:0.85">Sigmund Freud erlebt schwere Zeiten. Die Nationalsozialisten marschieren in Wien ein; Juden werden verfolgt. Freuds Tochter Anna wird von der Gestapo abgeholt. In dieser Zeit bekommt er einen unerwarteten Besuch. Der Unbekannte deutet an, dass er Gott ist! Als überzeugter Atheist nimmt Freud seine Worte nicht ernst, doch die Fähigkeiten des Besuchers (z.B. Einzelheiten aus dem Leben von Freud zu kennen oder die Gabe in die Zukunft zu schauen) machen Freud nachdenklich.</p>
+        <div style="display:flex;gap:var(--space-3);margin-top:var(--space-6)">
+          <a class="btn btn-primary" style="background:#c11b1f;border-color:#c11b1f;color:#ffffff" href="{{ ticketUrl }}" target="_blank" rel="noopener">Tickets sichern</a>
+          <a class="btn btn-secondary" style="background:#ffffff;border-color:#263483;color:#263483" href="#termine">Alle Termine</a>
+        </div>
       </div>
     </div>
-    <figure class="lighten" style="grid-area:image;border-radius:var(--radius-lg);overflow:hidden;margin:0">
-      <img src="Der Besucher Jens Bodo Meier und Christian Richter_Francois Croissant.jpg" alt="Jens Bodo Meier und Christian Richter im Gespräch, Szene aus Der Besucher" style="width:100%;height:520px;object-fit:cover">
-    </figure>
   </section>
 
   <div class="hr" style="max-width:1200px;margin-left:auto;margin-right:auto"></div>
