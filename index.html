@@ -38,6 +38,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .dialog-close-mobile { display: flex !important; }
   .termine-grid { grid-template-columns: repeat(2, 1fr) !important; gap: var(--space-3) !important; }
   .theater-festival-btn { bottom: 12px !important; right: 12px !important; padding: 6px 14px !important; font-size: 12px !important; }
+  .theater-festival-banner { max-height: 340px !important; }
+
 }
 </style>
 </helmet>
@@ -60,9 +62,10 @@ html, body { overflow-x: hidden; max-width: 100%; }
       <div style="position:relative">
         <h1 class="hero-title" style="font-family:'Bernard MT Condensed', var(--font-heading);font-weight:400;font-size:96px;line-height:0.95;color:#c11b1f;margin:0 0 var(--space-4);max-width:14ch">Der Besucher</h1>
         <div class="hero-text" style="max-width:52ch">
-          <p style="font-size:18px;color:#263483;margin-bottom:var(--space-1)">Der Besucher (Le Visiteur) — Von Éric-Emmanuel Schmitt</p>
+          <p style="font-size:18px;color:#263483;margin-bottom:0">Der Besucher (Le Visiteur)</p>
+          <p style="font-size:18px;color:#263483;margin-bottom:0">Von Éric-Emmanuel Schmitt</p>
           <p style="font-size:18px;color:#263483;margin-bottom:var(--space-3)">Deutsch von Annette und Paul Bäcker</p>
-          <p style="font-size:13px;color:#263483;margin-bottom:var(--space-4)">Ein Projektensemble der Goetheanum-Bühne</p>
+          <p style="font-size:15px;font-weight:500;color:#c11b1f;margin-bottom:var(--space-4)">Ein Projektensemble der Goetheanum-Bühne</p>
           <p style="font-size:16px;opacity:0.85">Sigmund Freud erlebt schwere Zeiten. Die Nationalsozialisten marschieren in Wien ein; Juden werden verfolgt. Freuds Tochter Anna wird von der Gestapo abgeholt. In dieser Zeit bekommt er einen unerwarteten Besuch. Der Unbekannte deutet an, dass er Gott ist! Als überzeugter Atheist nimmt Freud seine Worte nicht ernst, doch die Fähigkeiten des Besuchers (z.B. Einzelheiten aus dem Leben von Freud zu kennen oder die Gabe in die Zukunft zu schauen) machen Freud nachdenklich.</p>
           <div style="display:flex;gap:var(--space-3);margin-top:56px">
             <a class="btn btn-primary" style="background:#c11b1f;border-color:#c11b1f;color:#ffffff;padding:14px 28px;font-size:16px" href="{{ ticketUrl }}" target="_blank" rel="noopener">Tickets sichern</a>
@@ -150,7 +153,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
       </sc-for>
     </div>
     <sc-if value="{{ activePerson }}" hint-placeholder-val="{{ false }}">
-      <div class="dialog-backdrop" onClick="{{ closePerson }}">
+      <div class="dialog-backdrop" style="z-index:1000" onClick="{{ closePerson }}">
         <div class="dialog" style="position:relative;max-width:380px;padding-top:36px;padding-right:28px;padding-bottom:28px;padding-left:28px;background:#ffffff;color:#263483" onClick="{{ stopClick }}">
           <button class="dialog-close-mobile" onClick="{{ closePerson }}" style="display:none;position:absolute;top:12px;left:12px;width:36px;height:36px;align-items:center;justify-content:center;border-radius:50%;border:none;background:#f4f3fa;color:#263483;font-size:20px;cursor:pointer">‹</button>
           <figure style="border-radius:var(--radius-md);overflow:hidden;width:160px;height:160px;margin:0 0 20px">
@@ -169,8 +172,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </section>
   </sc-if>
 
-  <a href="https://srmk.goetheanum.org/konferenzen/theater-26" target="_blank" rel="noopener" style="display:block;position:relative;max-height:340px;overflow:hidden">
-    <img src="Theater-Festival am Goetheanum.png" alt="Theater-Festival am Goetheanum, 23.–25. Oktober 2026" style="display:block;width:100%;height:auto;object-fit:cover">
+  <a href="https://srmk.goetheanum.org/konferenzen/theater-26" target="_blank" rel="noopener" class="theater-festival-banner" style="display:block;position:relative;max-height:180px;overflow:hidden">
+    <img src="Theater-Festival am Goetheanum.png" alt="Theater-Festival am Goetheanum, 23.–25. Oktober 2026" style="display:block;width:100%;height:auto;object-fit:cover;object-position:center 30%">
     <span class="theater-festival-btn" style="position:absolute;bottom:24px;right:24px;background:#2e7d4f;color:#ffffff;padding:10px 22px;border-radius:999px;font-size:14px;white-space:nowrap">Zur Webseite</span>
   </a>
 
