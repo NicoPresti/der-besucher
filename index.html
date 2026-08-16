@@ -31,7 +31,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .hero-title { font-size: 56px !important; }
   .hero-photo { display: none !important; }
   .hero-text { max-width: none !important; }
-  .hero-scrim { background: rgba(255,255,255,0.92) !important; }
+  .hero-scrim { background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.92) 45%, rgba(255,255,255,0.92) 100%) !important; }
+  .hero-edge-fade { display: none !important; }
   .ensemble-grid { grid-template-columns: repeat(2, 1fr) !important; row-gap: var(--space-6) !important; column-gap: var(--space-4) !important; }
   .ensemble-grid > div { grid-column: span 1 !important; margin-top: 0 !important; }
   .dialog { max-height: 85vh; overflow-y: auto; }
@@ -56,8 +57,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
   <section style="position:relative;background:#ffffff;color:#1a1a2e;overflow:hidden">
     <div style="position:relative;max-width:1400px;margin:0 auto;background-image:url('3.png');background-size:900px">
-    <div style="position:absolute;top:0;bottom:0;left:0;width:60px;background:linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%)"></div>
-    <div style="position:absolute;top:0;bottom:0;right:0;width:60px;background:linear-gradient(270deg, #ffffff 0%, rgba(255,255,255,0) 100%)"></div>
+    <div style="position:absolute;top:0;bottom:0;left:0;width:60px;background:linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%)" class="hero-edge-fade"></div>
+    <div style="position:absolute;top:0;bottom:0;right:0;width:60px;background:linear-gradient(270deg, #ffffff 0%, rgba(255,255,255,0) 100%)" class="hero-edge-fade"></div>
     <img src="hintergrnd.png" alt="Die zwei Figuren aus Der Besucher im Gespräch" fetchpriority="high" style="display:block;position:absolute;left:0;right:0;bottom:0;width:100%;height:auto">
     <div style="position:relative;max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) 72px">
       <div class="hero-scrim" style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.82) 16%, rgba(255,255,255,0.82) 68%, rgba(255,255,255,0) 100%)"></div>
