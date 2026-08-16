@@ -35,7 +35,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .hero-edge-fade { display: none !important; }
   .ensemble-grid { grid-template-columns: repeat(2, 1fr) !important; row-gap: var(--space-6) !important; column-gap: var(--space-4) !important; }
   .ensemble-grid > div { grid-column: span 1 !important; margin-top: 0 !important; }
-  .dialog { max-height: 85vh; overflow-y: auto; }
+  .dialog { max-height: 80vh; overflow-y: auto; padding-top: 24px !important; }
+  .dialog figure { width: 110px !important; height: 110px !important; margin-bottom: 12px !important; }
   .dialog-close-mobile { display: flex !important; }
   .termine-grid { grid-template-columns: repeat(2, 1fr) !important; gap: var(--space-3) !important; }
   .theater-festival-btn { bottom: 12px !important; right: 12px !important; padding: 6px 14px !important; font-size: 12px !important; }
@@ -61,7 +62,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <div style="position:absolute;top:0;bottom:0;right:0;width:60px;background:linear-gradient(270deg, #ffffff 0%, rgba(255,255,255,0) 100%)" class="hero-edge-fade"></div>
     <img src="hintergrnd.png" alt="Die zwei Figuren aus Der Besucher im Gespräch" fetchpriority="high" style="display:block;position:absolute;left:0;right:0;bottom:0;width:100%;height:auto">
     <div style="position:relative;max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) 72px">
-      <div class="hero-scrim" style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.82) 16%, rgba(255,255,255,0.82) 68%, rgba(255,255,255,0) 100%)"></div>
+      <div style="position:absolute;left:0;top:0;width:min(600px,90%);height:100%;background:radial-gradient(ellipse at center, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.5) 55%, rgba(255,255,255,0) 80%)"></div>
       <div style="position:relative">
         <h1 class="hero-title" style="font-family:'Bernard MT Condensed', var(--font-heading);font-weight:400;font-size:96px;line-height:0.95;color:#c11b1f;margin:0 0 var(--space-4);max-width:14ch">Der Besucher</h1>
         <div class="hero-text" style="max-width:52ch">
