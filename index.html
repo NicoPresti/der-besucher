@@ -24,7 +24,9 @@
 .btn { transition: transform 0.15s ease, opacity 0.15s ease; }
 .btn:hover { transform: translateY(-2px); opacity: 0.9; }
 .theater-festival-btn { transition: transform 0.15s ease, opacity 0.15s ease; }
-.theater-festival-btn:hover { transform: scale(1.05); }
+.theater-festival-btn:hover { transform: translate(-50%,-50%) scale(1.05); }
+.theater-festival-banner { transition: transform 0.3s ease; }
+.theater-festival-banner:hover { transform: scale(1.02); }
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Leise.otf") format("opentype"); font-weight: 300; }
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Klar.otf") format("opentype"); font-weight: 400; }
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Deutlich.otf") format("opentype"); font-weight: 500; }
@@ -47,7 +49,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .dialog figure { width: 110px !important; height: 110px !important; margin-bottom: 12px !important; }
   .dialog-close-mobile { display: flex !important; }
   .termine-grid { grid-template-columns: repeat(2, 1fr) !important; gap: var(--space-3) !important; }
-  .theater-festival-btn { position: static !important; margin-top: 16px !important; display: inline-block !important; width: fit-content !important; align-self: flex-start !important; }
+  .theater-festival-btn { display: inline-block !important; position: static !important; margin-top: 16px !important; width: fit-content !important; align-self: flex-start !important; transform: none !important; }
   .theater-festival-banner { display: flex !important; flex-direction: column !important; }
   .theater-festival-banner { min-height: 320px !important; padding: 32px var(--space-6) !important; background-size: auto 100% !important; background-position: 85% center !important; }
   .theater-title { font-size: 24px !important; max-width: 100% !important; white-space: normal !important; }
@@ -187,7 +189,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0) 70%)"></div>
     <div class="theater-title" style="position:relative;font-family:var(--font-heading);font-weight:700;font-size:40px;line-height:1.15;color:#6b8e3c;max-width:60%;white-space:nowrap">Theater-Festival<br>am Goetheanum</div>
     <div class="theater-date" style="position:relative;font-family:var(--font-heading);font-weight:500;font-size:20px;color:#ffffff;margin-top:12px">23.–25. Oktober 2026</div>
-    <span class="theater-festival-btn" style="position:absolute;bottom:24px;right:24px;background:#2e7d4f;color:#ffffff;padding:10px 22px;border-radius:999px;font-size:14px;white-space:nowrap">Zur Webseite</span>
+    <span class="theater-festival-btn" style="display:none;position:absolute;bottom:24px;left:50%;top:50%;transform:translate(-50%,-50%);background:#2e7d4f;color:#ffffff;padding:10px 22px;border-radius:999px;font-size:14px;white-space:nowrap">Zur Webseite</span>
   </a>
 
   <div style="background:linear-gradient(160deg,var(--color-section),var(--color-section-glow));padding:var(--space-6) var(--space-6);font-size:16px">
