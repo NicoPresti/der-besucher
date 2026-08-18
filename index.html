@@ -20,6 +20,11 @@
 <link rel="preload" as="image" href="7. Nadia-sm.png">
 <style>
 @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.ensemble-person:hover .ensemble-photo { transform: scale(1.03); }
+.btn { transition: transform 0.15s ease, opacity 0.15s ease; }
+.btn:hover { transform: translateY(-2px); opacity: 0.9; }
+.theater-festival-btn { transition: transform 0.15s ease, opacity 0.15s ease; }
+.theater-festival-btn:hover { transform: scale(1.05); }
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Leise.otf") format("opentype"); font-weight: 300; }
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Klar.otf") format("opentype"); font-weight: 400; }
 @font-face { font-family: "Goetheanum Schrift"; src: url("Goetheanum-Schrift-v2.6-Deutlich.otf") format("opentype"); font-weight: 500; }
@@ -42,7 +47,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .dialog figure { width: 110px !important; height: 110px !important; margin-bottom: 12px !important; }
   .dialog-close-mobile { display: flex !important; }
   .termine-grid { grid-template-columns: repeat(2, 1fr) !important; gap: var(--space-3) !important; }
-  .theater-festival-btn { bottom: 12px !important; right: 12px !important; padding: 6px 14px !important; font-size: 12px !important; }
+  .theater-festival-btn { position: static !important; margin-top: 16px !important; display: inline-block !important; width: fit-content !important; align-self: flex-start !important; }
+  .theater-festival-banner { display: flex !important; flex-direction: column !important; }
   .theater-festival-banner { min-height: 320px !important; padding: 32px var(--space-6) !important; background-size: auto 100% !important; background-position: 85% center !important; }
   .theater-title { font-size: 24px !important; max-width: 100% !important; white-space: normal !important; }
   .theater-date { font-size: 15px !important; }
@@ -149,8 +155,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <h2 style="margin-bottom:var(--space-6);color:#263483">Ensemble</h2>
     <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(12,1fr);column-gap:56px;row-gap:64px">
       <sc-for list="{{ people }}" as="person" hint-placeholder-count="6">
-        <div style="grid-column:{{ person.col }};margin-top:{{ person.offset }}px;cursor:pointer" onClick="{{ person.onClick }}">
-          <figure style="margin:0 0 var(--space-4);aspect-ratio:4/5;overflow:hidden;border-radius:var(--radius-md)">
+        <div class="ensemble-person" style="grid-column:{{ person.col }};margin-top:{{ person.offset }}px;cursor:pointer" onClick="{{ person.onClick }}">
+          <figure class="ensemble-photo" style="margin:0 0 var(--space-4);aspect-ratio:4/5;overflow:hidden;border-radius:var(--radius-md);transition:transform 0.25s ease">
             <img src="{{ person.photo }}" alt="{{ person.name }}" style="width:100%;height:100%;object-fit:cover;object-position:{{ person.photoPos }};transform:{{ person.photoZoom }};filter:grayscale(0.15)">
           </figure>
           <div style="font-family:var(--font-heading);font-weight:500;font-size:22px;line-height:1.15;color:#263483">{{ person.name }}</div>
